@@ -6,10 +6,10 @@ st.set_page_config(page_title="Split name ASUS", layout="wide")
 st.title("🧩 Split name ASUS")
 
 st.markdown("""
-Input **tên hóa đơn ASUS** (1 product each row),    
+Input **Invoice name** => (1 product each row),    
 """)
 
-input_text = st.text_area("Dán danh sách tên hóa đơn tại đây:", height=200, placeholder="Mỗi dòng là 1 tên hóa đơn...")
+input_text = st.text_area("Paste list here:", height=200, placeholder="Each row contains 1 name only...")
 
 # --- HÀM XỬ LÝ CHÍNH
 def extract_short_name(name: str) -> str:
