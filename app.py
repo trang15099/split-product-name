@@ -6,8 +6,7 @@ st.set_page_config(page_title="Split name ASUS", layout="wide")
 st.title("🧩 Split name ASUS")
 
 st.markdown("""
-Nhập nhiều dòng **tên hóa đơn ASUS** (mỗi dòng 1 sản phẩm),  
-bấm **“Xử lý dữ liệu”** để tạo *Tên ngắn* (≤40 ký tự) và *Tên dài* (≤127 ký tự).  
+Input **tên hóa đơn ASUS** (1 product each row),    
 """)
 
 input_text = st.text_area("Dán danh sách tên hóa đơn tại đây:", height=200, placeholder="Mỗi dòng là 1 tên hóa đơn...")
