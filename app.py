@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import re
 
-st.set_page_config(page_title="Tool tách tên ngắn & tên dài ASUS", layout="wide")
-st.title("🧩 Tool tách Tên ngắn & Tên dài từ Tên hóa đơn ASUS")
+st.set_page_config(page_title="Split name ASUS", layout="wide")
+st.title("🧩 Split name ASUS")
 
 st.markdown("""
 Nhập nhiều dòng **tên hóa đơn ASUS** (mỗi dòng 1 sản phẩm),  
@@ -51,7 +51,7 @@ def extract_long_name(name: str) -> str:
     return ""
 
 # --- NÚT XỬ LÝ
-if st.button("🚀 Xử lý dữ liệu"):
+if st.button("🚀 START"):
     rows = [x.strip() for x in input_text.splitlines() if x.strip()]
     if not rows:
         st.warning("⚠️ Vui lòng nhập ít nhất 1 dòng dữ liệu.")
@@ -79,5 +79,5 @@ if st.button("🚀 Xử lý dữ liệu"):
         styled = df.style.applymap(lambda v: highlight_over(v, 40), subset=["Tên ngắn"]) \
                          .applymap(lambda v: highlight_over(v, 127), subset=["Tên dài"])
 
-        st.subheader("📊 Kết quả")
+        st.subheader("📊 Result")
         st.dataframe(styled, use_container_width=True)
