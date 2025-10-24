@@ -43,19 +43,10 @@ def extract_short_name(name: str) -> str:
     short_name = short_name.replace("/", " ").replace("  ", " ").strip()
     return short_name
 
-#def extract_long_name(name: str) -> str:
- #   match = re.search(r'\(.*\)', name)
-  #  if match:
-   #     return match.group(0)
-    #return ""
-
 def extract_long_name(name: str) -> str:
-    # Tìm tất cả vị trí dấu ngoặc
-    parts = re.split(r'\(', name, maxsplit=2)
-    if len(parts) >= 3:
-        # Ghép lại phần đầu và phần giữa ngoặc đầu tiên, bỏ ngoặc thứ hai trở đi
-        return '(' + parts[1].split(')')[0] + ')' + parts[2].split('(')[0].rstrip()
-    return name
+    m = re.search(r'\([^()]*\)[^()]*', name)
+    return m.group(0).rstrip() if m else ""
+
 
 # --- NÚT XỬ LÝ
 if st.button("🚀 START"):
