@@ -74,8 +74,8 @@ if st.button("🚀 START"):
                 return "background-color: #fff176; color: black;"
             return ""
 
-        styled = df.style.applymap(lambda v: highlight_over(v, 40), subset=["Tên ngắn"]) \
-                         .applymap(lambda v: highlight_over(v, 127), subset=["Tên dài"])
+        styled = df.style.map(lambda v: highlight_over(v, 40), subset=["Tên ngắn"]) \
+                         .map(lambda v: highlight_over(v, 127), subset=["Tên dài"])
 
         st.subheader("📊 Result")
         st.dataframe(styled, use_container_width=True)
